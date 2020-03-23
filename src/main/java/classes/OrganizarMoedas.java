@@ -34,15 +34,10 @@ public class OrganizarMoedas implements OrganizarDinheiro {
         quantidadeDeMoedasDeUmDeterminadoValor.put(moeda, numeroDeMoedasAdicionadas);
     }
 
-    public Integer retornaQuantidadeMoedas() {
+    public Integer retornarQuantidadeDeMoedas() {
         Integer valores = null;
         valores = quantidadeDeMoedasDeUmDeterminadoValor.get(Moedas.values()[1]);
         return valores;
-    }
-
-    @Override
-    public String retornarInformacoesAoUsuario() {
-        return null;
     }
 
     @Override

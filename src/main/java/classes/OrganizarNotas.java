@@ -19,15 +19,15 @@ public class OrganizarNotas implements OrganizarDinheiro {
         int contador = 0;
         while (valorJaOrganizadoEmNotas < valorASerOrganizadoEmNotas && contador < notas.length && valorASerOrganizadoEmNotas - valorJaOrganizadoEmNotas >= 1.00) {
             if (notas[contador].getValor() <= valorASerOrganizadoEmNotas) {
-                adicionaNotaAoPagamento(notas[contador]);
+                adicionarNotaAoPagamento(notas[contador]);
             }
             contador++;
         }
     }
 
-    private void adicionaNotaAoPagamento(Notas nota) {
+    private void adicionarNotaAoPagamento(Notas nota) {
         Integer numeroDeNotasAdicionadas = 0;
-        while (nota.getValor()+ valorJaOrganizadoEmNotas <= valorASerOrganizadoEmNotas) {
+        while (nota.getValor() + valorJaOrganizadoEmNotas <= valorASerOrganizadoEmNotas) {
             valorJaOrganizadoEmNotas += nota.getValor();
             numeroDeNotasAdicionadas++;
         }
@@ -38,20 +38,14 @@ public class OrganizarNotas implements OrganizarDinheiro {
     public double getValorOrganizado() {
         return valorJaOrganizadoEmNotas;
     }
-
-    @Override
-    public Map<Notas, Integer> getQuantidade() {
-        return quantidadeDeNotasDeUmDeterminadoValor;
-    }
-
-    public Integer retornaQuantidadeDeNotas(Notas nota) {
+    public Integer retornarQuantidadeDeNotas(Notas nota) {
         Integer valores = null;
         valores = quantidadeDeNotasDeUmDeterminadoValor.get(nota);
         return valores;
     }
 
     @Override
-    public String retornarInformacoesAoUsuario() {
-        return null;
+    public Map<Notas, Integer> getQuantidade() {
+        return quantidadeDeNotasDeUmDeterminadoValor;
     }
 }

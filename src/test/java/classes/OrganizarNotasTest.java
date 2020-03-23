@@ -11,7 +11,7 @@ public class OrganizarNotasTest {
         Notas[] notas = Notas.values();
 
         organizarNotas.organizar();
-        Integer valores = organizarNotas.retornaQuantidadeDeNotas(Notas.values()[0]);
+        Integer valores = organizarNotas.retornarQuantidadeDeNotas(Notas.values()[0]);
 
         assertEquals((Integer) 10, valores);
     }

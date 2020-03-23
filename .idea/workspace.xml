@@ -2,26 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0a0b2610-76a3-4a4a-96d5-8351f75b03a0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/classes/Moedas.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/classes/Notas.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/classes/OrganizarDinheiro.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/classes/OrganizarMoedas.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/classes/OrganizarMoedasTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/classes/OrganizarNotasTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/classes/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/classes/Moeda.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/classes/Nota.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/classes/Pagamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/classes/Pagamento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/classes/PagamentoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/classes/PagamentoTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/classes/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/classes/Moeda.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/classes/Nota.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/classes/Pagamento.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/classes/Pagamento.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/classes/PagamentoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/classes/PagamentoTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/classes/OrganizarDinheiro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/classes/OrganizarDinheiro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/classes/OrganizarMoedas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/classes/OrganizarMoedas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/classes/OrganizarNotas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/classes/OrganizarNotas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/classes/OrganizarMoedasTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/classes/OrganizarMoedasTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/classes/OrganizarNotasTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/classes/OrganizarNotasTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,6 +181,7 @@
       <workItem from="1584560996806" duration="1788000" />
       <workItem from="1584562826757" duration="4059000" />
       <workItem from="1584621356758" duration="63828000" />
+      <workItem from="1584961400108" duration="1412000" />
     </task>
     <servers />
   </component>

@@ -10,7 +10,7 @@ public class OrganizarMoedasTest {
         OrganizarMoedas organizarMoedas = new OrganizarMoedas(50);
         organizarMoedas.organizar();
 
-        Integer valores = organizarMoedas.retornaQuantidadeMoedas();
+        Integer valores = organizarMoedas.retornarQuantidadeDeMoedas();
 
 assertEquals((Integer) 1, valores);
     }
