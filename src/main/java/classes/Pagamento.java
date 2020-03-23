@@ -1,9 +1,5 @@
 package classes;
 
-import sun.util.resources.cldr.yav.LocaleNames_yav;
-
-import java.lang.reflect.Array;
-import java.util.HashMap;
 import java.util.Map;
 
 public class Pagamento {
@@ -11,61 +7,60 @@ public class Pagamento {
 
     private double valorASerPago;
     private double troco;
-    private double valorQueJafoiPago;
-    private Map<Moeda, Integer> quantidadeMoedas = new HashMap<Moeda, Integer>();
-    private Map<Nota, Integer> quantidadeNotas;
+    private OrganizarDinheiro organizarNotas;
+    private OrganizarDinheiro organizarMoedas;
 
     public Pagamento(double valorPago, double valorASerPago) {
         this.valorPago = valorPago;
         this.valorASerPago = valorASerPago;
-    }
-
-    public String pagarOCliente() {
         this.troco = calcularTroco();
-        if (this.troco > 0.0) {
-            organizarDinheiro();
-        }
-        Moeda[] quantidade = (Moeda[]) quantidadeMoedas.keySet().toArray();
-        return "O cliente deve receber"+quantidadeMoedas.values().toString();
+        this.organizarMoedas = null;
+        this.organizarNotas = null;
     }
 
     private double calcularTroco() {
         return this.valorPago - valorASerPago;
     }
 
-    private void organizarDinheiro() {
-        while (valorQueJafoiPago < troco) {
-            if (valorASerPago < 1.0) {
-                organizarMoedas();
-            } else {
-                organizarNotas();
-            }
+    public void calcularEOrganizarPagamento() {
+        if (troco >=1.00){
+            organizarNotas = new OrganizarNotas(troco);
+            organizarNotas.organizar();
+        }
+        if (troco < 1.0 || organizarNotas.getValorOrganizado() < troco) {
+            double diferenca = this.organizarNotas != null? this.troco-organizarNotas.getValorOrganizado(): troco;
+            organizarMoedas = new OrganizarMoedas(diferenca);
+            organizarMoedas.organizar();
         }
     }
 
-    private void organizarNotas() {
-        Map<Nota, Integer> quantidadeNotas = new HashMap<Nota, Integer>();
-        Nota[] nota = Nota.values();
+    public String apresentarInformacoesDePagamento() {
+        String resumo = "Você deve dar "+this.troco+" ao cliente, na seguinte organização:\n";
+        if (organizarNotas != null) {
+            resumo = resumo+montarResumoDeNotas();
+        }
+        if (organizarMoedas != null) {
+            resumo = resumo+montarResumoDeMoedas();
+        }
+        return resumo;
     }
 
-    private void organizarMoedas() {
-        Moeda moeda[] = Moeda.values();
-        int i;
-        for (i = 0; i < moeda.length; i++) {
-            if (valorASerPago + moeda[i].getValor() <= valorASerPago) {
-                adiciona(moeda[i]);
-            }
+    private String montarResumoDeMoedas() {
+        String resumo = "";
+        Map<Moedas, Integer> quantidadeDeMoedasOrganizadas = organizarMoedas.getQuantidade();
+        for (Moedas moedas:quantidadeDeMoedasOrganizadas.keySet()) {
+            resumo = resumo+quantidadeDeMoedasOrganizadas.get(moedas)+" moedas de "+moedas.getNomeMoeda()+"\n"  ;
         }
+        return resumo;
     }
 
-    private void adiciona(Moeda moeda) {
-        Integer numeroDeMoedasDeUmDeterminadoValor;
-        do {
-            numeroDeMoedasDeUmDeterminadoValor = quantidadeMoedas.containsKey(moeda) ? quantidadeMoedas.get(moeda) + 1 : 1;
-            quantidadeMoedas.put(moeda, numeroDeMoedasDeUmDeterminadoValor);
-            valorASerPago -= moeda.getValor();
-            valorQueJafoiPago += moeda.getValor();
+    private String montarResumoDeNotas() {
+        Map<Notas, Integer> quantidadeDeNotasOrganizadas = organizarNotas.getQuantidade();
+        String resumo = "";
+        for (Notas notas:quantidadeDeNotasOrganizadas.keySet()) {
+            resumo = resumo+quantidadeDeNotasOrganizadas.get(notas)+" notas de "+notas.getNomeNota()+"\n";
         }
-        while (valorQueJafoiPago < troco || valorQueJafoiPago + moeda.getValor() <= troco);
+        return resumo;
     }
+
 }
